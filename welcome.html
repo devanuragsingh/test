@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Smart Scheduler</title>
+    <link rel="stylesheet" href="styles.css">  
+</head>
+<body>
+    <video autoplay loop muted class="background-video">
+        <source src="animation.mp4" type="video/mp4"> <!-- Updated to relative path -->
+        Your browser does not support the video tag.
+    </video>
+    <div class="welcome-container">
+        <h1>Welcome to Smart Scheduler</h1>
+        <p>Your personal task management tool to help you stay organized and on track.</p>
+        <button id="start-button" onclick="location.href='index.html'">Get Started</button>
+    </div>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0; /* Remove default margin */
+            overflow: hidden; /* Prevent scrolling */
+        }
+        .background-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Cover the entire background */
+            z-index: -1; /* Place behind other content */
+        }
+        .welcome-container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.8); /* Slight transparency */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2), 0 10px 20px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for hover effect */
+            position: relative; /* Required for pseudo-element */
+            overflow: hidden; /* Prevents overflow of pseudo-element */
+        }
+        .welcome-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            z-index: -1;
+            transition: transform 0.3s;
+            filter: blur(10px);
+        }
+        .welcome-container:hover {
+            transform: translateY(-5px); /* Lift effect on hover */
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3), 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+        #start-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background: linear-gradient(135deg, #007bff, #0056b3);
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s; /* Smooth transition for glow effect */
+            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3); /* Initial shadow */
+        }
+        #start-button:hover {
+            background: linear-gradient(135deg, #0056b3, #004494);
+            box-shadow: 0 0 20px rgba(0, 123, 255, 0.7), 0 0 30px rgba(0, 123, 255, 0.5); /* Glow effect */
+            transform: translateY(-3px) scale(1.05); /* Lift and scale effect on hover */
+        }
+    </style>
+</body>
+</html>
