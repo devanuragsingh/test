@@ -1,1 +1,179 @@
-test file
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Scheduler</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            display: flex;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+            gap: 20px; /* Space between containers */
+        }
+
+        .container {
+            width: 30%; /* Reduced width to accommodate right containers */
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            margin-left: 20px;
+        }
+
+        .right-containers {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 60%; /* Width for right side containers */
+        }
+
+        .task-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            flex: 1; /* Equal height distribution */
+        }
+
+        /* Form styling */
+        #task-form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        input {
+            padding: 8px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Clock styling */
+        #clock {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            text-align: center;
+        }
+
+        /* Tasks styling */
+        #pending-tasks, #completed-tasks {
+            margin-top: 20px;
+        }
+
+        .task {
+            background-color: #f8f9fa;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+        }
+
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 15% auto;
+            padding: 20px;
+            width: 70%;
+            border-radius: 5px;
+        }
+
+        .close-button {
+            float: right;
+            cursor: pointer;
+        }
+
+        /* Task container headers */
+        .task-container h2 {
+            color: #007bff;
+            border-bottom: 2px solid #007bff;
+            padding-bottom: 10px;
+            margin-top: 0;
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            .container, .right-containers, .task-container {
+                width: 90%;
+                margin: 10px auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Smart Scheduler</h1>
+        <form id="task-form">
+            <h2>Add New Task</h2>
+            <label for="task-name">Task Name:</label>
+            <input type="text" id="task-name" placeholder="Enter task name" required>
+            
+            <label for="task-date">Task Date:</label>
+            <input type="date" id="task-date" required>
+            
+            <label for="deadline-date">Deadline Date:</label>
+            <input type="date" id="deadline-date" required>
+            
+            <label for="deadline-time">Deadline Time:</label>
+            <input type="time" id="deadline-time" required>
+            
+            <button type="submit">Add Task</button>
+        </form>
+        
+        <div id="clock"></div>
+
+        <button id="about-button">About</button>
+        <div id="about-modal" class="modal">
+            <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <h2>About</h2>
+                <p>This is a Smart Scheduler application that helps you manage tasks by priority and deadline.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="right-containers">
+        <div class="task-container">
+            <h2>Pending Tasks</h2>
+            <div id="pending-tasks"></div>
+        </div>
+        
+        <div class="task-container">
+            <h2>Completed Tasks</h2>
+            <div id="completed-tasks"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
